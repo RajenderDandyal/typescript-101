@@ -41,3 +41,5 @@ npm-debug.log*
 
 # Jest Coverage
 coverage
+/maps/.cache
+/maps/dist
