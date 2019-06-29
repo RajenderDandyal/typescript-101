@@ -1,7 +1,9 @@
 import faker from "faker";
+import { Mappable, First } from "./CustomMap";
 
-export class User {
+export class User implements First, Mappable {
   name: string;
+  color: string = "blue";
   location: {
     lat: number;
     lng: number;
@@ -12,5 +14,12 @@ export class User {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude())
     };
+  }
+  markerContent(): string {
+    return `
+    <div>
+      <h2>User Name: ${this.name.toUpperCase()}</h2>
+    </div>
+    `;
   }
 }
